@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { db } from "./firebase";
 import { collection, addDoc, onSnapshot } from "firebase/firestore";
+import "./App.css"; // Import the CSS file
 
 function App() {
   const [letters, setLetters] = useState([]);
@@ -36,17 +37,17 @@ function App() {
   };
 
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
-      <h1>🎅 Welcome to ItsChristmas 🎄</h1>
+    <div className="app-container">
+      <h1 className="title">🎅 Welcome to ItsChristmas! 🎄</h1>
 
-      <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
+      <form onSubmit={handleSubmit} className="form">
         <input
           type="text"
           placeholder="Your Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          style={{ marginRight: "10px" }}
+          className="input"
         />
         <input
           type="text"
@@ -54,15 +55,17 @@ function App() {
           value={wish}
           onChange={(e) => setWish(e.target.value)}
           required
-          style={{ marginRight: "10px" }}
+          className="input"
         />
-        <button type="submit">Send Letter</button>
+        <button type="submit" className="button">
+          Send Letter
+        </button>
       </form>
 
-      <h2>🎁 Santa's Inbox</h2>
-      <ul style={{ listStyleType: "none", padding: 0 }}>
+      <h2 className="subtitle">🎁 Santa's Inbox</h2>
+      <ul className="letters-list">
         {letters.map((letter) => (
-          <li key={letter.id} style={{ marginBottom: "10px" }}>
+          <li key={letter.id} className="letter-item">
             <strong>{letter.name}:</strong> {letter.wish}
           </li>
         ))}
