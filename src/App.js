@@ -70,6 +70,16 @@ function App() {
           </li>
         ))}
       </ul>
+      {/* Link to Watch AR experience https://adobeaero.app.link/BJ2QnS1nQOb*/}
+      <a
+        href="https://adobeaero.app.link/BJ2QnS1nQOb"
+        target="_blank"
+        rel="noreferrer"
+        className="ar-link"
+      >
+        {" "}
+        Watch AR Experience
+      </a>
     </div>
   );
 }
